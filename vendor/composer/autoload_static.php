@@ -6,20 +6,9 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit79f0b44814394b0ae93526f533ac06d7
 {
-    public static $prefixesPsr0 = array (
-        'M' => 
-        array (
-            'Monolog' => 
-            array (
-                0 => __DIR__ . '/..' . '/monolog/monolog/src',
-            ),
-        ),
-    );
-
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixesPsr0 = ComposerStaticInit79f0b44814394b0ae93526f533ac06d7::$prefixesPsr0;
 
         }, null, ClassLoader::class);
     }
