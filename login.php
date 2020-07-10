@@ -1,6 +1,19 @@
 <?php
-    $client = new MongoDB\Client(
-        'mongodb+srv://mongoadmin:<password>@cluster0.qeq7i.gcp.mongodb.net/<dbname>?retryWrites=true&w=majority');
-        $db = $client->test; 
-        echo '<h1>'. $db.'<h1>';
+
+
+$host="localhost";
+$port=3306;
+$socket="";
+$user="root";
+$password="root";
+$dbname="login";
+
+
+  $con = mysqli_connect ($host, $user, $password, $dbname);
+
+  if (!$con){
+    echo "<script>window.alert('ERROR') window.location.href='$index'</script>";
+  }
+  
+  
 ?>
