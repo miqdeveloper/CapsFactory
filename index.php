@@ -3,17 +3,14 @@
  
  $host="localhost";
  $port=3306;
- $socket="";
  $user="root";
  $password="root";
  $dbname="login";
  
  
-   $con = mysqli_connect ($host, $user, $password, $dbname);
+   $con = mysqli_connect ($host, $user, $password, $dbname) or die('Erro de conexão!');
  
-   if (!$con){
-     echo "<script>window.alert('ERROR') window.location.href='$index'</script>";
-   }
+  echo $con;   
    
    
  ?>
