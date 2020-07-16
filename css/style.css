@@ -83,6 +83,10 @@
 .ch-info h4{
 	margin-bottom: -35px;
 	margin-top:50px;
+	color: rgb(0, 0, 0);
+	font-style: italic;
+	font-size: 20px;
+	
 }
 .ch-info p a {
 	display: block;
