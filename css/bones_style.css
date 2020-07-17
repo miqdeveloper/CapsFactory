@@ -1,0 +1,25 @@
+body{
+    background-color: #f1f1f1
+}
+
+.main{
+    height: auto;
+    width: 95%;
+    margin: 0.5%;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns:  auto auto auto auto;
+}
+
+.grid-item{
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.308);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    text-align: center;    
+}
+
+.grid-item > h5{
+    margin: 0;
+}
