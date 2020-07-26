@@ -2,8 +2,11 @@
 	require "links.php";
 	require "sql.php";
 
-   if((string)$_SERVER["REQUEST_METHOD"] != "POST"){
-	   header("location:".$login);
+   if((string)$_SERVER["REQUEST_METHOD"] == "POST"){
+		echo "<script>
+		alert('Aceito apenas POST!')
+		window.location.href='$login'
+		</script>";
 	   exit;
    }
 
