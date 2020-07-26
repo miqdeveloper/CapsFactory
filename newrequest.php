@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Send me caps</title>
-    <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/bones_style.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/bones_style.css">
 </head>
 <body>
     <form action="#" method="POST">
@@ -84,6 +84,12 @@
                 <input type="checkbox" name='A-virada'> Aba Virada<br>
                 <label for='I-add'>Infos Adicionais</label><br>
                 <input type="text" name='I-adicionais' id='I-add'>
+
+            </div>
+
+            <div class="grid-item">
+                <input type="file" name="up-pic" id="uppic">
+                <input type="file" name="up-corew" id="upcorew">
 
             </div>
 

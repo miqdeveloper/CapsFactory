@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href="css/DashboardUser_style.css">
     <link rel='stylesheet' href="css/reset.css">
+    <?php require 'verifica.php';?>
     <title>Painel</title>
 </head>
 <header>
     <ul>
-        <li style="float:right"><a href='#'> hello User</a></li> <!-- gerado em php-->
-        <li><a href='/newbuy.html#'>Meus pedidos</a></li>
+        <li style="float:right"><a href='#'>Olá, <?php echo $_SESSION['name'] ?></a> <ul><li><a>Sair</a></li></ul></li> <!-- gerado em php-->
+        <li><a href='/request.php#'>Meus pedidos</a></li>
     </ul>
 </header>
 <body>

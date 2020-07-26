@@ -10,7 +10,7 @@
 <body>
     <center>
     <div class="container">
-        <form  action="login.php" method="get">
+        <form  action="login.php" method="POST">
             <h1>CapsFactory</h1>
             <h1>Entrar</h1>
             <div class="bar"></div>

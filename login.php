@@ -1,51 +1,38 @@
- <?php
+<?php
+	require "links.php";
+	require "sql.php";
 
- require 'links.php';
- require 'sql.php';
+   if((string)$_SERVER["REQUEST_METHOD"] != "POST"){
+	   header("location:".$login);
+	   exit;
+   }
 
- if($_SERVER['REQUEST_METHOD'] != 'POST'){
-     echo '<h1> Erro no method</h1>';
- }
+	$email = (string)trim(md5(trim(htmlspecialchars($_POST['email']))));
+	$pass = (string)trim(md5(trim(htmlspecialchars($_POST['pass']))));
 
- $email = (string) md5(htmlspecialchars(trim($_POST["email"])));
- $pass = (string) md5(htmlspecialchars(trim($_POST["senha"])));
+	  
+   if(empty($email) or empty($pass)){
+		echo "<script>
+		alert('Usuario ou Senhas Vazios!')
+		window.location.href='$login'
+		</script>";
+   }
+   
+	$sql = "select * from login_users where login_email = '$email' and login_pass = '$pass'";
+	$query = mysqli_query($con, $sql) or die("<script>alert('error') window.location.replace('$login')</script>");
+	
+	$res = mysqli_num_rows($query);
 
- if(!$email || !$pass) {
-     echo "<script>
-                window.alert('Usuario ou senha vazios!');
-                window.location.href='$login'
-            </script>";
- }
-#Fazer consulta e autenticar usuario
- $query = "SELECT  login_email FROM login_users WHERE login_email = '$email'";
- $sql = mysqli_query($con, $query)  or die("<script>window.alert('ERRO NO BANCO DE DADOS') window.location.href='$index'</script>");
- $num = (int)mysqli_num_rows($sql);
-
- if($num > 0){
-    $query2 = "SELECT  login_pass FROM login_users WHERE login_pass = '$pass'";
-    $sql2 = mysqli_query($con, $query)  or die("<script>window.alert('ERRO NO BANCO DE DADOS') window.location.href='$index'</script>");
-    $num2 = (int)mysqli_num_rows($sql);
-
-    if((int)$num2 > 0){
-        session_start();
-        header("Location: dashboardUser.html");
-    }
-    else{
-
-    echo "<script>
-            window.alert('E-amail não encontrado!')
-            window.location.href='$index';
-        </script>";
-    exit;
-    }
- }
- else {
-
-    echo "<script>
-            window.alert('E-amail ou Senha não encontrados!');
-            window.location.href='$index';
-       </script>";
-    exit;     
- }
-
- ?>
+	if($res <= 0 ){
+		echo "<script>alert('Usuario ou senha incorretos'); window.location.href='$login'</script>";
+		exit;
+	}
+	if($res > 0){
+		$rec = mysqli_fetch_array($query);
+		session_start();
+		$_SESSION['id_user'] = $rec['id_user'];
+		$_SESSION['name'] = $rec['name'];
+		header("Location:".$dash_user); 		
+		
+	}
+?>
