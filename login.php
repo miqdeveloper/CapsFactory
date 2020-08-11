@@ -3,12 +3,8 @@
 	require "sql.php";
 
    if((string)$_SERVER["REQUEST_METHOD"] == "POST"){
-		echo "<script>
-		alert('Aceito apenas POST!')
-		window.location.href='$login'
-		</script>";
-	   exit;
-   }
+		
+   
 
 	$email = (string)trim(md5(trim(htmlspecialchars($_POST['email']))));
 	$pass = (string)trim(md5(trim(htmlspecialchars($_POST['pass']))));
@@ -37,5 +33,14 @@
 		$_SESSION['name'] = $rec['name'];
 		header("Location:".$dash_user); 		
 		
+	}
+
+	}
+	else {
+		echo "<script>
+		alert('Aceito apenas POST!')
+		window.location.href='$login'
+		</script>";
+	   exit;
 	}
 ?>

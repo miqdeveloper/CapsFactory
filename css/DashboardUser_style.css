@@ -7,6 +7,7 @@
 
 body{
     background-color: #f1f1f1;
+    line-height: 0;
 
 }
 
@@ -30,6 +31,7 @@ li a {
     padding: 14px 16px;
     text-decoration: none;
 }
+
 
 
 li:hover{
@@ -65,3 +67,19 @@ li:hover{
     padding-right: 0%;  
 
 }
+
+.exit{
+    background-color: #2ec4b6;
+    float: right;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+    color: white;
+    display: block;
+    padding: 15px 14px;
+    border: 0;
+}
+.exit:hover{
+    background-color:  #19a89a;
+}
+
