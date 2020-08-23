@@ -1,11 +1,13 @@
     $('#formsend').ready(function(){
-        $('#btns').click(function(){
+        $('#btns').click(
+            function(){                
 
             var model = document.getElementsByName('capsM');
             for(var x=0; x < model.length; x++){
                 if(model[x].checked)
                     var modelo = model[x].value;
             }
+
 
             var quant = $("input[type=number][name=capsN]");
             var quantidade = quant.val();
@@ -62,6 +64,12 @@
             var inf2 = $('input[type=text][name=I-addd]');
             var infaddtwo = inf2.val();
 
+            var files = $('#uppic')[0].files;
+            for (var f = 0; f < files.length; f++){
+
+                console.log(files[i]);
+            }
+
             var data = {
                 'modelo': modelo,
                 'qauntidade': [quantidade, amount],
@@ -83,12 +91,21 @@
                 async: true,
                 error: function(state, data, arg){
                     alert('Pedido enviado com sucesso!');
-                    
-                },
+
+                }, 
                 success: function(status){
                     if(status == 'success');
                         alert('Pedido enviado com sucesso!');
                 }
+            });
+
+
+            $.ajax({
+                type: 'POST',
+                url: 'sendcap_file.php',
+                dataType: 'json',
+                contentType: 'multipart/form-data',
+
             });
 
 

@@ -101,8 +101,7 @@
             </div>
 
             <div class="grid-item">
-                <input type="file" name="up-pic" id="uppic">
-                <input type="file" name="up-corew" id="upcorew">
+                <input type="file" name="up-pic" id="uppic" multiple>
                 <button id='btns' >Enviar</button>
 
             </div>

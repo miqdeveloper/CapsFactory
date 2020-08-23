@@ -5,13 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>FactoryCap - Cadastro</title>
     <link rel="stylesheet" href="css/cadastro_style.css">
-
-    <script> function borde(){
-         document.getElementById("pass").style.border = "1px solid black";
-         document.getElementById("passw");
-    }
-
-    </script>
+    <script type='text/javascript' lenguage='javascript' src="../JSs/cpf_validate.js"></script>
+    <script type='text/javascript' lenguage='javascript' src="../JSs/.js"></script>
 </head>
 
 <body>
@@ -24,7 +19,7 @@
             <input type="text" name="name" id='name' required=True><br>
 
                 <label for="cnpj">CNPJ:</label><br>
-            <input type="text" name="cnpj" id='cnpj' required=True><br>
+            <input type="text" name="cnpj" id='cnpj' required=True value=''><br>
 
                 <label for="endereco"> ENDEREÇO:</label><br>
             <input type="text" name="endereco" id="endereco" required=True><br>
@@ -41,7 +36,7 @@
                 <label for="passw">REPETIR SENHA:</label><br>
             <input type="password" name="Csenha" id='passw'><br>
 
-            <input type="submit" id="btn" value="Enviar" required=True><br>
+            <input type="button" id="btn" value="Enviar" onclick='checke()'><br>
         </div>
     </div>
     </center>
