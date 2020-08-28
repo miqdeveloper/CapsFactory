@@ -18,7 +18,7 @@
    }
    
 	$sql = "select * from login_users where login_email = '$email' and login_pass = '$pass'";
-	$query = mysqli_query($con, $sql) or die("<script>alert('error') window.location.replace('$login')</script>");
+	$query = mysqli_query($con, $sql) or die("<script>alert('error'); window.location.replace('$login')</script>");
 	
 	$res = mysqli_num_rows($query);
 
