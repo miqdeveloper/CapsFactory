@@ -3,6 +3,7 @@
   $register = '/register.php';
   $login =  $host.'/entrar.php';
   $insc =  $host.'/cad.php';
-  $dash_user = $host.'/DashboardUser.php'; 
+  $dash_user = $host.'/DashboardUser.php';
+  $dash_fabric = $host.'/DashboardFabric.php'; 
  
 ?>

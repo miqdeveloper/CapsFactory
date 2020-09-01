@@ -6,7 +6,7 @@
 		
    
 
-	$email = (string)trim(md5(trim(htmlspecialchars($_POST['email']))));
+	$email = (string) trim(htmlspecialchars($_POST['email']));
 	$pass = (string)trim(md5(trim(htmlspecialchars($_POST['pass']))));
 
 	  
@@ -17,7 +17,7 @@
 		</script>";
    }
    
-	$sql = "select * from login_users where login_email = '$email' and login_pass = '$pass'";
+	$sql = ("select * from users_login_table where login_email = '$email' and login_pass = '$pass';");
 	$query = mysqli_query($con, $sql) or die("<script>alert('error'); window.location.replace('$login')</script>");
 	
 	$res = mysqli_num_rows($query);
@@ -30,8 +30,17 @@
 		$rec = mysqli_fetch_array($query);
 		session_start();
 		$_SESSION['id_user'] = $rec['id_user'];
-		$_SESSION['name'] = $rec['name'];
-		header("Location:".$dash_user); 		
+		$_SESSION['name'] = $rec['login_name'];
+		$_SESSION['category'] = $rec['login_category'];
+		
+		if($_SESSION['category'] == 'Cliente'){
+			header("Location:".$dash_user);
+
+		}if($_SESSION['category'] == 'Fábrica'){
+			header("Location:".$dash_fabric);	
+			
+		}
+
 		
 	}
 

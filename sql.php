@@ -3,7 +3,7 @@ require "links.php";
 
   $host="127.0.0.1";
   $port=3306;
-  $user="capslogin";
+  $user="root";
   $password="rooter";
   $dbname="loginusers";
 

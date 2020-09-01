@@ -100,15 +100,6 @@
             });
 
 
-            $.ajax({
-                type: 'POST',
-                url: 'sendcap_file.php',
-                dataType: 'json',
-                contentType: 'multipart/form-data',
-
-            });
-
-
         });
 
     });
