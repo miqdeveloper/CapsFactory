@@ -1,5 +1,6 @@
 <?php
     require 'verifica.php';
+    require 'sql.php';
 
     use Dompdf\Dompdf;
     require "vendor/autoload.php";
@@ -50,6 +51,10 @@
    $name_pdf = (string)md5($_SESSION['name'].'_'.rand(0, 9999999));
    #criar tabela para adicionar a fila de pedidos
    file_put_contents('pdf_temp/'.$name_pdf.'.pdf', $dom->output());
+   #login no sql para registrar o pedido 
+   $name = $_SESSION['name']; 
+   $sql_argv = "INSERT INTO pedidos (nome_pedido, status_pedido, local_files_pedido, local_files_images) VALUES ('$name', 'Pendente', '$name_pdf.pdf', 'NULL')";
+   $query = mysqli_query($con, $sql_argv)or die("<script>alert('ERRO -> SENDCAP.PHP');</script>");
    #fazer upload de arquivos
 
 
