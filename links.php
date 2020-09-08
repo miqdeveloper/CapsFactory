@@ -4,6 +4,7 @@
   $login =  $host.'/entrar.php';
   $insc =  $host.'/cad.php';
   $dash_user = $host.'/DashboardUser.php';
-  $dash_fabric = $host.'/DashboardFabric.php'; 
+  $dash_fabric = $host.'/DashboardFabric.php';
+  $request =  $host.'/pedidos_recebidos.php';
  
 ?>

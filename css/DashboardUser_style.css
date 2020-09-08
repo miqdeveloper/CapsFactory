@@ -82,4 +82,12 @@ li:hover{
 .exit:hover{
     background-color:  #19a89a;
 }
-
+#iframe_{
+    width: 70%;
+    height: 200px;
+    background-color: transparent;
+    border: 0px;
+    position: static;
+    text-align: center;
+    margin: 0% 0% 0% 2%;
+}
