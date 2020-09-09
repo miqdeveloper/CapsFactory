@@ -102,7 +102,7 @@
             </div>
 
             <div class="grid-item">
-                <input type="file" name="up-pic" id="uppic" multiple>
+                <input type="file" name="up-pic" id="uppic">
                 <button id='btns' >Enviar</button>
 
             </div>

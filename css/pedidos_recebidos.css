@@ -1,5 +1,5 @@
 table{
-    border: 1px solid black;
+    border: none;
     font-size: 25px;
     align-items: center;
     text-align: center;
@@ -7,7 +7,7 @@ table{
 
 
 td{
-    width: 350px;
+    width: 400px;
 }
 
 
