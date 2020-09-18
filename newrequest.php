@@ -9,6 +9,8 @@
     <?php require 'verifica.php'?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type='text/javascript' lenguage='javascript' src="../JSs/sendme.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.7/dist/css/uikit.min.css" />
+
     
 </head>
 <body>
@@ -97,13 +99,11 @@
                 <input type="checkbox" name='capsIA' value='Aba Virada'> Aba Virada<br>
 
                 <label for='I-add'>Infos Adicionais</label><br>
-                <input type="text" name='I-addd' id='I-add'>
+                <input type="text" name='I-addd' id='I-add'><br>
+                <button id='btns'  class="uk-button uk-button-primary" >Enviar</button>
 
             </div>
-
-            <div class="grid-item">
-                <input type="file" name="up-pic" id="uppic">
-                <button id='btns' >Enviar</button>
+                
 
             </div>
 

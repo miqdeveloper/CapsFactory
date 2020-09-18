@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dompdf/dompdf.git",
-                "reference": "db91d81866c69a42dad1d2926f61515a1e3f42c5"
+                "reference": "8d8a529500a2e5e01152c9b99488adb815d568cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dompdf/dompdf/zipball/db91d81866c69a42dad1d2926f61515a1e3f42c5",
-                "reference": "db91d81866c69a42dad1d2926f61515a1e3f42c5",
+                "url": "https://api.github.com/repos/dompdf/dompdf/zipball/8d8a529500a2e5e01152c9b99488adb815d568cb",
+                "reference": "8d8a529500a2e5e01152c9b99488adb815d568cb",
                 "shasum": ""
             },
             "require": {
@@ -72,7 +72,7 @@
             ],
             "description": "DOMPDF is a CSS 2.1 compliant HTML to PDF converter",
             "homepage": "https://github.com/dompdf/dompdf",
-            "time": "2020-08-30T22:54:22+00:00"
+            "time": "2020-09-07T00:55:49+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -334,16 +334,16 @@
     "packages-dev": [
         {
             "name": "heroku/heroku-buildpack-php",
-            "version": "v179",
+            "version": "v180",
             "source": {
                 "type": "git",
                 "url": "https://github.com/heroku/heroku-buildpack-php.git",
-                "reference": "caa1d9171f3b3a88b31e81dc303066a77b9871c6"
+                "reference": "bdc35a681196447f32985f8a703ed3b50ab4627d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/heroku/heroku-buildpack-php/zipball/caa1d9171f3b3a88b31e81dc303066a77b9871c6",
-                "reference": "caa1d9171f3b3a88b31e81dc303066a77b9871c6",
+                "url": "https://api.github.com/repos/heroku/heroku-buildpack-php/zipball/bdc35a681196447f32985f8a703ed3b50ab4627d",
+                "reference": "bdc35a681196447f32985f8a703ed3b50ab4627d",
                 "shasum": ""
             },
             "bin": [
@@ -374,7 +374,7 @@
                 "nginx",
                 "php"
             ],
-            "time": "2020-08-13T22:57:50+00:00"
+            "time": "2020-09-15T22:54:51+00:00"
         }
     ],
     "aliases": [],

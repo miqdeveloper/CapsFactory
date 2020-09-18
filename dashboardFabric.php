@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href="css/DashboardUser_style.css">
+    <link rel='stylesheet' href="css/panel_style.css">
     <link rel='stylesheet' href="css/reset.css">
+
     <?php require 'verifica.php'?>
     <title>Painel</title>
 </head>
@@ -34,6 +36,13 @@
     </ul>
 </header>
 <body>
+
+<form   method="POST" action="change_status.php" class="box_change">
+            <input type='text' name='change' id='input'><br>
+
+            <input type="submit" name="producao" value="Produção"  id='button-prd'><br>            
+            <input type="submit" name="concluido" value="Concluido" id='button-con' ><br>
+</form>
 <?php 
         require 'sql.php';
 
@@ -42,6 +51,8 @@
         $sql_query = mysqli_query($con, $query_p)or die("ERRO NO BANCO DE DADOS -> DASHBOARDUSER.PHP");
         $res = mysqli_num_rows($sql_query);
     ?>
+
+
     <div class='box' style=" background-color: rgb(209, 5, 5);">
         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="50" viewBox="0 0 50 60" style=" fill:#ffffff;">    <path d="M 25 2 C 12.309295 2 2 12.309295 2 25 C 2 37.690705 12.309295 48 25 48 C 37.690705 48 48 37.690705 48 25 C 48 12.309295 37.690705 2 25 2 z M 25 4 C 36.609824 4 46 13.390176 46 25 C 46 36.609824 36.609824 46 25 46 C 13.390176 46 4 36.609824 4 25 C 4 13.390176 13.390176 4 25 4 z M 23.800781 14.300781 C 23.500781 14.300781 23.400391 14.499219 23.400391 14.699219 L 23.400391 28.199219 C 23.400391 28.499219 23.600781 28.599609 23.800781 28.599609 L 26.099609 28.599609 C 26.399609 28.599609 26.5 28.399219 26.5 28.199219 L 26.5 14.699219 C 26.5 14.399219 26.299609 14.300781 26.099609 14.300781 L 23.800781 14.300781 z M 23.800781 32.300781 C 23.500781 32.300781 23.400391 32.499219 23.400391 32.699219 L 23.400391 35.300781 C 23.400391 35.600781 23.600781 35.699219 23.800781 35.699219 L 26.199219 35.699219 C 26.499219 35.699219 26.599609 35.500781 26.599609 35.300781 L 26.599609 32.699219 C 26.599609 32.399219 26.399219 32.300781 26.199219 32.300781 L 23.800781 32.300781 z"></path></svg>
         <h4 id="number"><?php echo $res;?></h4>
@@ -49,10 +60,10 @@
     </div>
 
     <div class='box' style="background-color:  rgb(242, 138, 47);">
-    <?php 
+    <?php
         require 'sql.php';
       
-        $query_ep = "SELECT * FROM pedidos WHERE status_pedido = 'emproducao'";        
+        $query_ep = "SELECT * FROM pedidos WHERE status_pedido = 'Produção'";        
 
         $sql_query = mysqli_query($con, $query_ep)or die("ERRO NO BANCO DE DADOS -> DASHBOARDUSER.PHP");
         $res_ep = mysqli_num_rows($sql_query);
@@ -62,7 +73,6 @@
         <h6 id="fonts">Em produção</h6>
     </div>
 
-
     <div class='box' style="background-color:  rgb(2, 180, 56);">
 
         
@@ -70,7 +80,7 @@
             
             require 'sql.php';
 
-            $query_c =  "SELECT * FROM pedidos WHERE status_pedido = 'concluido'";     
+            $query_c =  "SELECT * FROM pedidos WHERE status_pedido = 'Concluido'";     
 
             $sql_query = mysqli_query($con, $query_c)or die("ERRO NO BANCO DE DADOS -> DASHBOARDUSER.PHP");
             $res_c = mysqli_num_rows($sql_query);
@@ -81,6 +91,12 @@
         <h6 id="fonts">Concluidos</h6>
     </div>
 
-     <iframe id='iframe_' src='<?php echo $request; ?>'></iframe>
+
+
+    <iframe id='iframe_' src='<?php echo $request; ?>'></iframe>
+
+
+
+
 </body>
 </html>

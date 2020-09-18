@@ -63,12 +63,7 @@
 
             var inf2 = $('input[type=text][name=I-addd]');
             var infaddtwo = inf2.val();
-
-            var files = $('#uppic')[0].files;
-            for (var f = 0; f < files.length; f++){
-
-                console.log(files[i]);
-            }
+            
 
             var data = {
                 'modelo': modelo,
@@ -90,14 +85,18 @@
                 data: data,
                 async: true,
                 error: function(state, data, arg){
-                    alert('Pedido enviado com sucesso!');
-
+                    alert('Pedido enviado com sucesso!!');
+                    ///fazer redirecionamento!!!!!
+                    window.location.href = "http://127.0.0.1:8080/files_contents.php"
                 }, 
                 success: function(status){
                     if(status == 'success');
                         alert('Pedido enviado com sucesso!');
+
+                       
                 }
             });
+
 
 
         });

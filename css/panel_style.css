@@ -1,0 +1,58 @@
+.box_change{
+    width: 250px;
+    height: 200px;
+    background-color:transparent;
+    padding: 1%;
+    position: fixed;
+    left: 75%;
+    top: 20%;
+    box-sizing: border-box;
+}
+input{
+    margin-bottom: 2%;
+}
+#input{
+    width: 60%;
+    height: 30px;
+    font-size: 22px;
+    
+}
+
+#button-pnd{
+    
+    background-color: rgb(209, 5, 5);
+    
+
+}
+#button-prd{
+    background-color:  rgb(242, 138, 47);
+    
+}
+
+#button-con{
+    background-color:  rgb(2, 180, 56);
+    
+
+}
+
+#button-pnd, #button-prd, #button-con{
+
+    border: none;
+    width: 60%;
+    height: 30px;
+    font-size: 16px;
+    font-weight: 700;
+    
+}
+
+#button-pnd:hover{
+    background-color:rgb(156, 0, 0);    
+}
+
+#button-prd:hover{
+    background-color:rgb(207, 103, 11);
+}
+
+#button-con:hover{
+    background-color: rgb(6, 139, 46);    
+}

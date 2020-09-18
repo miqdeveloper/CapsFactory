@@ -55,7 +55,7 @@
     <?php 
         require 'sql.php';
       
-        $query_ep = "SELECT * FROM pedidos WHERE status_pedido = 'emproducao'";        
+        $query_ep = "SELECT * FROM pedidos WHERE status_pedido = 'Produção'";        
 
         $sql_query = mysqli_query($con, $query_ep)or die("ERRO NO BANCO DE DADOS -> DASHBOARDUSER.PHP");
         $res_ep = mysqli_num_rows($sql_query);
@@ -73,7 +73,7 @@
             
             require 'sql.php';
 
-            $query_c =  "SELECT * FROM pedidos WHERE status_pedido = 'concluido'";     
+            $query_c =  "SELECT * FROM pedidos WHERE status_pedido = 'Concluido'";     
 
             $sql_query = mysqli_query($con, $query_c)or die("ERRO NO BANCO DE DADOS -> DASHBOARDUSER.PHP");
             $res_c = mysqli_num_rows($sql_query);

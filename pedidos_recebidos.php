@@ -13,8 +13,23 @@
         require 'links.php';
         require 'sql.php';
         require 'verifica.php';
+        
+       
+        if($_SESSION['category'] == 'Cliente'){
 
-        $query = ("SELECT * FROM pedidos");
+            $name = (string)$_SESSION['name'];
+            $query = ("SELECT * FROM pedidos where nome_pedido = '$name'");
+            
+
+
+            
+        }if($_SESSION['category'] == 'Fábrica'){
+
+            $query = ("SELECT * FROM pedidos");
+                        
+
+        }
+        
         $sql_send = mysqli_query($con, $query)or die('ERROR --> PEDIDOS_RECEBIDOS.PHP');
         if (mysqli_num_rows($sql_send) < 1) {
 
@@ -34,9 +49,11 @@
                         </tr>";
 
             while($rest = mysqli_fetch_array($sql_send)){
+                $_SESSION['ids_pedidos']  = $rest['Id_pedido'];
                 echo "
                         <tr>
                             <td>"
+                                
                                 .$rest['Id_pedido']."
                             </td>
                             <td>"
@@ -51,6 +68,13 @@
                             <a href=".$download."pdf_temp/".$rest['local_files_pedido']."><img src='/Fotos/pdf.png' width='30' height='30'></a>
                             </td>
 
+                            <td>
+                            <a href=".$download."file_image/".$rest['local_files_images']."><img src='/Fotos/image.png' width='30' height='30'></a>
+                            </td>
+
+                            <td>
+                            <a href=".$download."file_corew/".$rest['local_file_corew']."><img src='/Fotos/corel.png' width='30' height='30'></a>
+                            </td>
                          </tr>";
                     
                  
