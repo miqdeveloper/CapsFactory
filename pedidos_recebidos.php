@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href="css/pedidos_recebidos.css">
     <script type='text/javascript' lenguage='javascript' src="../JSs/style_table.js"></script>
+    <link rel='stylesheet' href='css/spectre.min.css'>
+    <link rel='stylesheet' href='css/spectre-exp.min.css'>
+    <link rel='stylesheet' href='css/spectre-icons.min.css'>
     <title></title>
 </head>
 <body>
@@ -37,7 +40,7 @@
             
         }else {
                 echo "
-                    <table>
+                    <table class='table table-striped table-hover'>
                         <tr>
                             <th>ID</th>
                             <th>Nome</th>
@@ -51,7 +54,7 @@
             while($rest = mysqli_fetch_array($sql_send)){
                 $_SESSION['ids_pedidos']  = $rest['Id_pedido'];
                 echo "
-                        <tr>
+                        <tr class='active'>
                             <td>"
                                 
                                 .$rest['Id_pedido']."

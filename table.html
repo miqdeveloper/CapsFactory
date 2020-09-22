@@ -1,0 +1,57 @@
+"<!DOCTYPE html>
+<html lang='pt-br'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='widli=device-widli, initial-scale=1.0'>
+    <title>Documento- PDF</title>
+    <link rel='stylesheet' href='css/spectre.min.css'>
+    <link rel='stylesheet' href='css/spectre-exp.min.css'>
+    <link rel='stylesheet' href='css/spectre-icons.min.css'>
+
+    <style>
+        h4{margin-left: 2em; color: #000000;}
+        li{font-size: 18px; margin-left: 5em; font-weight: 600;}
+        h5, h6{margin-left: 5em; color:#000000 ;}
+        h6{color: red;}
+
+        
+
+    </style>
+</head>
+<body>
+    <center><h1>Pedido - ".$_SESSION['name'] ."</h1></center>
+     
+        <h4>1. Modelo</h4>
+            <li>".$modelo."</li>
+
+        <h4>2. Quantidade</h4>
+            <li>".$quantidade_0." Bonés</li>
+            <h5>2.1. Complemento</h5>
+                <li>".$quantidade_1."</li>
+
+        <h4>4. Tecido</h4>
+            <li>".$tecido."</li>
+
+        <h4>5. Fundo e Laterais</h4>
+            <li>".$fndltrs."</li>
+
+        <h4>6. Ataca</h4>
+            <li>".$ataca."</li>
+
+        <h4>7. Dublagem</h4>
+            <li>".$dublagem."</li>
+
+        <h4>8. Cor</h4>
+            <li> Aba: ".$corAbaFrenteFL_0."</li>
+            <li> Frente: ".$corAbaFrenteFL_1."</li>
+            <li> Fundo e Lateral: ".$corAbaFrenteFL_2."</li>
+
+        <h4>9. Aplicação da logomarca</h4>
+            <li>".$apllogo."</li>
+
+        <h4>10. Informações adicionais</h4>
+            <li>10.1 - ".$ifadd_0."</li>"
+            <li>10.2 - ".$ifadd_1."</li>"
+        <h6>Atenção se o campo estiver em branco significa que não foi marcado.</h6>
+</body>
+</html>"
