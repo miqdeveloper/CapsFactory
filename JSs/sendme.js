@@ -87,7 +87,7 @@
                 error: function(state, data, arg){
                     alert('Pedido enviado com sucesso!!');
                     ///fazer redirecionamento!!!!!
-                    window.location.href = "http://127.0.0.1:8080/files_contents.php"
+                    window.location.href = "https://capsfactorysys.000webhostapp.com/files_contents.php"
                 }, 
                 success: function(status){
                     if(status == 'success');

@@ -1,3 +1,4 @@
+<?php require 'verifica.php'?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -6,10 +7,10 @@
     <title>Send me caps</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/bones_style.css">
-    <?php require 'verifica.php'?>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type='text/javascript' lenguage='javascript' src="../JSs/sendme.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.7/dist/css/uikit.min.css" />
+    
 
     
 </head>
@@ -100,7 +101,7 @@
 
                 <label for='I-add'>Infos Adicionais</label><br>
                 <input type="text" name='I-addd' id='I-add'><br>
-                <button id='btns'  class="uk-button uk-button-primary" >Enviar</button>
+                <button id='btns'  class="" >Enviar</button>
 
             </div>
                 

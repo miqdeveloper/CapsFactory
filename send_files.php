@@ -28,10 +28,10 @@
             mysqli_query($con, $request_update) or die("<script>alert('Pedido falhou -> SEND_FILES.PHP -> BD'); window.location.href='$dash_user';</script>");
             
             if($_SESSION['category'] == 'Cliente'){
-                echo "<script>alert('Pedido Criado com sucesso'); window.location.href='$dash_user';</script>";
+                echo "<script>alert('Pedido Criado com sucesso'); window.location.replace('$dash_user');</script>";
     
             }if($_SESSION['category'] == 'Fábrica'){
-                echo "<script>alert('Pedido Criado com sucesso'); window.location.href='$dash_fabric';</script>"; 
+                echo "<script>alert('Pedido Criado com sucesso'); window.location.replace('$dash_fabric');</script>"; 
                 
             }            
 

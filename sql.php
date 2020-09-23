@@ -11,7 +11,7 @@ require "links.php";
   $con = new mysqli($host, $user, $password, $dbname);
 
   if (!$con){
-    echo "<script>window.alert('ERROR') window.location.href='$index'</script>";
+    echo "<script>window.alert('ERROR'); window.location.href='$index';</script>";
   }
 
   

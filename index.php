@@ -1,5 +1,5 @@
  <?php
  require 'links.php';
- header("Location:".$login);
+ echo "<script>window.location.href = '$login';</script>";
    
  ?>

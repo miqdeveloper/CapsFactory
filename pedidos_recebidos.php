@@ -1,3 +1,4 @@
+<?php require 'verifica.php';?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +16,9 @@
     <?php 
         require 'links.php';
         require 'sql.php';
-        require 'verifica.php';
+        
+
+        
         
        
         if($_SESSION['category'] == 'Cliente'){
@@ -50,8 +53,24 @@
                             <th>CorewFiles</th>
 
                         </tr>";
+                        function check($sys_arg){
+
+                            if($sys_arg == "Pendente"){
+                
+                                return "<img src='/Fotos/pend.png' width='35' height='35' height='30'>";
+                
+                            }if($sys_arg == "Produção"){
+                                return "<img src='/Fotos/prod.png' width='35' height='35' height='30'>";
+                
+                            }if($sys_arg == "Concluido"){
+                                return "<img src='/Fotos/comp.png' width='35' height='35' height='30'>";
+                
+                            }
+                
+                        }
 
             while($rest = mysqli_fetch_array($sql_send)){
+                
                 $_SESSION['ids_pedidos']  = $rest['Id_pedido'];
                 echo "
                         <tr class='active'>
@@ -64,7 +83,7 @@
                                 "
                             </td> 
                             <td name='status_' value='".$rest['status_pedido']."'>
-                                ".$rest['status_pedido']."
+                                ".check($rest['status_pedido'])."
                             </td>
 
                             <td>

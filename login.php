@@ -34,10 +34,12 @@
 		$_SESSION['category'] = $rec['login_category'];
 		
 		if($_SESSION['category'] == 'Cliente'){
-			header("Location:".$dash_user);
+			echo "<script>window.location.href = '$dash_user';</script>";
+			exit();
 
 		}if($_SESSION['category'] == 'Fábrica'){
-			header("Location:".$dash_fabric);	
+			echo "<script>window.location.href = '$dash_fabric';</script>";
+			exit();	
 			
 		}
 

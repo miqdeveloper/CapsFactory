@@ -1,3 +1,4 @@
+<?php require 'verifica.php'?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -7,7 +8,7 @@
     <link rel='stylesheet' href="css/panel_style.css">
     <link rel='stylesheet' href="css/reset.css">
 
-    <?php require 'verifica.php'?>
+    
     <title>Painel</title>
 </head>
 <header>
@@ -22,13 +23,14 @@
 
         <?php
             function exi(){
-                echo"<script>location.reload(true);</script>";
                 session_destroy();
+                echo"<script>location.reload();</script>";
+                
                 
             }
         
             if(isset($_POST['exi'])){
-                echo "<script>location.reaload();</script>";
+                #echo "<script>location.reaload();</script>";
                 exi();
             }
         ?>
