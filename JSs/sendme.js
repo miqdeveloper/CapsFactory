@@ -91,6 +91,7 @@
                 }, 
                 success: function(status){
                     if(status == 'success');
+                        window.location.href = "https://capsfactorysys.000webhostapp.com/files_contents.php"
                         alert('Pedido enviado com sucesso!');
 
                        

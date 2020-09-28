@@ -1,0 +1,53 @@
+@font-face{
+    font-family: Dekar-Light;
+    src: url('Dekar-Light.ttf');
+  
+}
+*{
+    outline: none !important;
+   
+}
+.move-align{
+    right: 10%;
+}
+
+.color-container{
+    width: auto;
+    height: 400px;
+    background-color: #00d1b2;
+}
+#nav-title{
+    font-weight: 900;
+    font-size: 25px;
+    font-family: 'Dekar-Light';
+    color: #23bea7;
+
+}
+
+.cont-h1{
+    width: auto;
+    height: auto;
+    padding-top: 50px;
+}
+#center-h1{
+    color: #ffffff;
+    text-align: center;
+    font: outline;
+    font-size: 64px;
+    font-weight: 900;
+    font-family: 'Dekar-Light';
+
+}
+
+.container-two{
+    width: 75%;
+    height: auto;
+    text-align: center;
+    margin-left: 15%;
+    display: block;
+    padding-top: 5%;
+    font-weight: 800;
+    font-size: 22px;
+    color: black;
+
+}

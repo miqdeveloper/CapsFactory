@@ -11,10 +11,18 @@
 <body> 
 <form id='form_date' method="POST" enctype="multipart/form-data" action='send_files.php' >
     <label for='up-pic'> Escolha a imagem</label>
-    <input type="file" name="up-pic" id="uppic" acept="image/*"><br>
+    <div class="file">
+        <input type="file" name="up-pic" id="uppic" acept="image/*"><br>
+    </div>
 
     <label for='up-pic'> Escolha a arte(em arquivo corew)</label>
-    <input type="file" name="up-corew" id="upcorew"><br>
+    <div class="file">
+        <div class="file-label">
+            <input type="file" name="up-corew" id="upcorew"><br>
+</div>
+    
+    <div class="file">
+
     <button id='btns' type='submit' >Enviar</button>
 </form>
 </body>

@@ -43,7 +43,7 @@
             
         }else {
                 echo "
-                    <table class='table table-striped table-hover'>
+                    <table class='table table-striped'>
                         <tr>
                             <th>ID</th>
                             <th>Nome</th>

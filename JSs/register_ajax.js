@@ -47,11 +47,12 @@ $('#form_register').ready(function(){
             contentType:'application/x-www-form-urlencoded',
             data: data,
             error: function(state, data, arg){
-                console.log('ERRO');
-                console.log(state.status);
+                alert('cadastrado. Redirecionando');
+                window.location.href = "https://capsfactorysys.000webhostapp.com/entrar.php";
             },
             success: function(){
-                console.log('sucess');
+                alert('cadastrado. Redirecionando');
+                window.location.href = "https://capsfactorysys.000webhostapp.com/entrar.php";
             }
         });
     });

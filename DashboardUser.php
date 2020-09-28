@@ -6,27 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href="css/DashboardUser_style.css">
     <link rel='stylesheet' href="css/reset.css">
+    <link rel='stylesheet' href="css/bulma.css">
     
     <title>Painel</title>
 </head>
 <header>
-    <ul>
-    <li style="float:left"><a href='#'>Olá, <?php echo $_SESSION['name'];?></a></li>
+<nav class="navbar level" role="navigation" aria-label="main navigation" style="background-color: #ffff;">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="#">
+            <h1 id='nav-title'>Olá, <?php echo $_SESSION['name'] ?><h1>
+        </a>
+    </div>
 
-        <li style="float:right"><a href='/newrequest.php'>Novo Pedido</a></li>
+    <div class="level-right">
+        <p class="level-item"><a class="button move-align is-primary" href='/newrequest.php'>Novo Pedido</a></p>
 
-
-
-        <li style="float:right">
         <form action='#' method='POST'>
-            <input class="exit" type='submit' name='exi' value='Sair'>
+            <p class="level-item"><input type='submit'  name='exi'  class="button move-align is-primary" value='Sair'></input></p>
         </form>
-
-        <?php
+    </div>
+  </nav>
+  <?php
             function exi(){
                 session_destroy();
-                echo"<script>location.reload();</script>";
-                
+                echo"<script>location.reload();</script>";            
                 
             }
         
@@ -35,15 +38,12 @@
                 exi();
             }
         ?>
-        </li>
-    </ul>
-</header>
+ </header>
+  
 <body>
 <?php 
         require 'sql.php';
-
-        $query_p = "SELECT * FROM pedidos WHERE status_pedido = 'Pendente'";
-       
+        $query_p = "SELECT * FROM pedidos WHERE status_pedido = 'Pendente'";       
         $sql_query = mysqli_query($con, $query_p)or die("ERRO NO BANCO DE DADOS -> DASHBOARDUSER.PHP");
         $res = mysqli_num_rows($sql_query);
     ?>

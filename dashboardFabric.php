@@ -7,53 +7,45 @@
     <link rel='stylesheet' href="css/DashboardUser_style.css">
     <link rel='stylesheet' href="css/panel_style.css">
     <link rel='stylesheet' href="css/reset.css">
-
-    
+    <link rel='stylesheet' href="css/bulma.css">    
     <title>Painel</title>
 </head>
 <header>
-    <ul>
-    <li style="float:left"><a href='#'>Olá, <?php echo $_SESSION['name'];?></a></li>
-
-
-        <li style="float:right">
+<nav class="navbar level" role="navigation" aria-label="main navigation" style="background-color: #ffff;">
+    <div class="navbar-brand">
+        <div class="navbar-item">
+            <h1 id='nav-title'>Seja bem vindo, <?php echo $_SESSION['name'] ?><h1>
+    </div>
+    </div>
+    <div class="level-right">
         <form action='#' method='POST'>
-            <input class="exit" type='submit' name='exi' value='Sair'>
+            <p class="level-item"><input type='submit'  name='exi'  class="button move-align is-primary" value='Sair'></input></p>
         </form>
-
-        <?php
+    </div>
+  </nav>
+  <?php
             function exi(){
                 session_destroy();
                 echo"<script>location.reload();</script>";
-                
-                
-            }
-        
+            }        
             if(isset($_POST['exi'])){
                 #echo "<script>location.reaload();</script>";
                 exi();
             }
-        ?>
-        </li>
-    </ul>
-</header>
+    ?>
+ </header>
 <body>
-
 <form   method="POST" action="change_status.php" class="box_change">
             <input type='text' name='change' id='input'><br>
-
             <input type="submit" name="producao" value="Produção"  id='button-prd'><br>            
             <input type="submit" name="concluido" value="Concluido" id='button-con' ><br>
 </form>
-<?php 
+<?php
         require 'sql.php';
-
-        $query_p = "SELECT * FROM pedidos WHERE status_pedido = 'Pendente'";
-       
+        $query_p = "SELECT * FROM pedidos WHERE status_pedido = 'Pendente'";       
         $sql_query = mysqli_query($con, $query_p)or die("ERRO NO BANCO DE DADOS -> DASHBOARDUSER.PHP");
         $res = mysqli_num_rows($sql_query);
     ?>
-
 
     <div class='box' style=" background-color: rgb(209, 5, 5);">
         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="50" viewBox="0 0 50 60" style=" fill:#ffffff;">    <path d="M 25 2 C 12.309295 2 2 12.309295 2 25 C 2 37.690705 12.309295 48 25 48 C 37.690705 48 48 37.690705 48 25 C 48 12.309295 37.690705 2 25 2 z M 25 4 C 36.609824 4 46 13.390176 46 25 C 46 36.609824 36.609824 46 25 46 C 13.390176 46 4 36.609824 4 25 C 4 13.390176 13.390176 4 25 4 z M 23.800781 14.300781 C 23.500781 14.300781 23.400391 14.499219 23.400391 14.699219 L 23.400391 28.199219 C 23.400391 28.499219 23.600781 28.599609 23.800781 28.599609 L 26.099609 28.599609 C 26.399609 28.599609 26.5 28.399219 26.5 28.199219 L 26.5 14.699219 C 26.5 14.399219 26.299609 14.300781 26.099609 14.300781 L 23.800781 14.300781 z M 23.800781 32.300781 C 23.500781 32.300781 23.400391 32.499219 23.400391 32.699219 L 23.400391 35.300781 C 23.400391 35.600781 23.600781 35.699219 23.800781 35.699219 L 26.199219 35.699219 C 26.499219 35.699219 26.599609 35.500781 26.599609 35.300781 L 26.599609 32.699219 C 26.599609 32.399219 26.399219 32.300781 26.199219 32.300781 L 23.800781 32.300781 z"></path></svg>
@@ -75,19 +67,13 @@
         <h6 id="fonts">Em produção</h6>
     </div>
 
-    <div class='box' style="background-color:  rgb(2, 180, 56);">
-
-        
-        <?php   
-            
+    <div class='box' style="background-color:  rgb(2, 180, 56);">        
+        <?php              
             require 'sql.php';
-
-            $query_c =  "SELECT * FROM pedidos WHERE status_pedido = 'Concluido'";     
-
+            $query_c =  "SELECT * FROM pedidos WHERE status_pedido = 'Concluido'";
             $sql_query = mysqli_query($con, $query_c)or die("ERRO NO BANCO DE DADOS -> DASHBOARDUSER.PHP");
             $res_c = mysqli_num_rows($sql_query);
         ?>
-
         <svg id="Capa_1" height="50" viewBox="0 0 512 512"  style=" fill:#ffffff;" width="40" xmlns="http://www.w3.org/2000/svg"><g id="_x3C_Group_x3E__28_"><path d="m376 60v60h-240v-60h-75v452h390v-452zm-225 397.21-40.61-40.6 21.22-21.22 19.39 19.4 49.39-49.4 21.22 21.22zm0-90-40.61-40.6 21.22-21.22 19.39 19.4 49.39-49.4 21.22 21.22zm0-90-40.61-40.6 21.22-21.22 19.39 19.4 49.39-49.4 21.22 21.22zm240 143.79h-150v-30h150zm0-90h-150v-30h150zm0-90h-150v-30h150z"/><path d="m286 30c0-16.569-13.43-30-30-30-16.569 0-30 13.43-30 30-7.259 0-52.693 0-60 0v60h180c0-7.259 0-52.693 0-60-7.259 0-52.693 0-60 0z"/></g></svg>
         <h4 id="number"><?php echo $res_c;?></h4>
         <h6 id="fonts">Concluidos</h6>

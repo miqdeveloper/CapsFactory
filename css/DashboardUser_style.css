@@ -40,7 +40,7 @@ li:hover{
 
 
 .box{
-    height: 100px;
+    height: 140px;
     width: 250px;
     margin: 5% 2%;
     border-radius: 5px;
@@ -56,15 +56,16 @@ li:hover{
     float: right;
     font-family: Dekar-Light;
     font-weight: 900;
-    padding: 5%;
+    padding: 3%;
+    color: #ffff;
 }
 
 #fonts{
     font-family: Dekar-Light;
-    font-weight: 800;
+    font-weight: 600;
     float: right;
     margin-top: 87px;
-    padding-right: 0%;  
+    color: #ffff;
 
 }
 
@@ -79,15 +80,18 @@ li:hover{
     padding: 15px 14px;
     border: 0;
 }
+
 .exit:hover{
     background-color:  #19a89a;
 }
+
 #iframe_{
-    width: 70%;
-    height: 200px;
+    width: 80%;
+    height: 270px;
     background-color: transparent;
-    border: 0px;
+    border: 2px solid  #00d1b2;;
     position: static;
     text-align: center;
     margin: 0% 0% 0% 2%;
+    border-radius: 12px;
 }

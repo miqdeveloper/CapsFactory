@@ -14,14 +14,14 @@
         require 'sql.php';
         $sql = "UPDATE pedidos  SET status_pedido = 'Produção'  WHERE Id_pedido = '$ids'";
         $query = mysqli_query($con, $sql)or die("<script>alert('ENCONTRAMOS PROBLEMAS PARA ALTERAR O ID');<script>");
-        echo "<script>alert('função chamada com exito'); </script>"; 
+        echo "<script>alert('Status alterado');window.location.href = '$dash_fabric';</script>"; 
     }
 
     function concluido($ids){
         require 'sql.php';
         $sql = "UPDATE pedidos  SET status_pedido = 'Concluido'  WHERE Id_pedido = $ids";
         $query = mysqli_query($con, $sql)or die("<script>alert('ENCONTRAMOS PROBLEMAS PARA ALTERAR O ID');<script>");
-        echo "<script>alert('função chamada com exito'); </script>";
+        echo "<script>alert('Status alterado');window.location.href = '$dash_fabric';</script>";
 
     }
 
