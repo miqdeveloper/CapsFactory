@@ -1,5 +1,5 @@
 <?php
-  $host = 'http://127.0.0.1:8080';
+  $host = 'http://capsystem.epizy.com';
   $download = '/download.php?arquivo=';
   $register = '/register.php';
   $login =  $host.'/entrar.php';

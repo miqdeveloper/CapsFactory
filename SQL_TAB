@@ -1,0 +1,8 @@
+CREATE TABLE `epiz_29071245_capsdb`.`users_login_table` ( id_user INT AUTO_INCREMENT , `login_name` TEXT NOT NULL , `login_category` TEXT NOT NULL , `login_cnpj_cpf` TEXT NOT NULL , `login_email` TEXT NOT NULL , `login_fone` TEXT NOT NULL , `login_endereco` TEXT NOT NULL , `login_pass` TEXT NOT NULL, PRIMARY KEY (id_user)) ENGINE = InnoDB
+
+
+
+
+
+
+CREATE TABLE `epiz_29071245_capsdb`.`pedidos` ( id_pedido INT(255) NOT NULL AUTO_INCREMENT, `nome_pedido` TEXT NOT NULL , `status_pedido` TEXT NOT NULL , `local_files_pedido` TEXT NOT NULL , `local_files_images` TEXT NOT NULL , `local_file_corew` TEXT NOT NULL, PRIMARY KEY(id_pedido)) ENGINE = InnoDB;

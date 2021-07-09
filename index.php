@@ -21,8 +21,8 @@
     </div>
 
     <div class="level-right ">
-      <p class="level-item"><a class="button move-align is-primary" href="https://capsfactorysys.000webhostapp.com/entrar.php">Entrar</a></p>
-      <p class="level-item"><a class="button move-align is-primary" href="https://capsfactorysys.000webhostapp.com/register.php">Cadastrar</a></p>
+      <p class="level-item"><a class="button move-align is-primary" href="http://capsystem.epizy.com/entrar.php">Entrar</a></p>
+      <p class="level-item"><a class="button move-align is-primary" href="http://capsystem.epizy.com/register.php">Cadastrar</a></p>
     </div>
   </nav>
  </header>

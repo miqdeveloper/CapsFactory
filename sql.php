@@ -1,11 +1,11 @@
 <?php
 require "links.php";
 
-  $host="127.0.0.1";
+  $host="sql111.epizy.com";
   $port=3306;
-  $user="root";
-  $password="rooter";
-  $dbname="loginusers";
+  $user="epiz_29071245";
+  $password="eaShDXVhc9b";
+  $dbname="epiz_29071245_capsdb";
 
 
   $con = new mysqli($host, $user, $password, $dbname);
@@ -13,6 +13,4 @@ require "links.php";
   if (!$con){
     echo "<script>window.alert('ERROR'); window.location.href='$index';</script>";
   }
-
-  
 ?>

@@ -1,8 +1,7 @@
 <?php
     require 'verifica.php';
     require 'sql.php';
-    require 'capture_id.php';
-
+    
     use Dompdf\Dompdf;
     require "vendor/autoload.php";
     require_once "vendor/dompdf/autoload.inc.php";

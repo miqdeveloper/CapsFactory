@@ -87,11 +87,11 @@
                 error: function(state, data, arg){
                     alert('Pedido enviado com sucesso!!');
                     ///fazer redirecionamento!!!!!
-                    window.location.href = "https://capsfactorysys.000webhostapp.com/files_contents.php"
+                    window.location.href = "http://capsystem.epizy.com/files_contents.php"
                 }, 
                 success: function(status){
                     if(status == 'success');
-                        window.location.href = "https://capsfactorysys.000webhostapp.com/files_contents.php"
+                        window.location.href = "http://capsystem.epizy.com/files_contents.php"
                         alert('Pedido enviado com sucesso!');
 
                        
