@@ -3,12 +3,12 @@
 
 $COMPOSER = getenv("COMPOSER")?:"composer.json";
 $COMPOSER_LOCK = getenv("COMPOSER_LOCK")?:"composer.lock";
-$STACK = getenv("STACK")?:"cedar-14";
+$STACK = getenv("STACK")?:"heroku-18";
 
 // prefix keys with "heroku-sys/"
 function mkdep($require) { return array_combine(array_map(function($v) { return "heroku-sys/$v"; }, array_keys($require)), $require); }
 // check if require section demands a runtime
-function hasreq($require) { return isset($require["php"]) || isset($require["hhvm"]); }
+function hasreq($require) { return isset($require["php"]); }
 
 // return stability flag string for Composer's internal numeric value from lock file
 function getflag($number) {
@@ -28,7 +28,7 @@ function getflag($number) {
 
 function mkmetas($package, array &$metapaks, &$have_runtime_req = false) {
 	// filter platform reqs
-	$platfilter = function($v) { return preg_match("#^(hhvm$|php(-64bit)?$|ext-)#", $v); };
+	$platfilter = function($v) { return preg_match("#^(php(-64bit)?$|ext-)#", $v); };
 	
 	// extract only platform requires, replaces and provides
 	$preq = array_filter(isset($package["require"]) ? $package["require"] : [], $platfilter, ARRAY_FILTER_USE_KEY);
@@ -149,29 +149,44 @@ if(file_exists($COMPOSER_LOCK)) {
 	if($metapaks) $repositories[] = ["type" => "package", "package" => $metapaks];
 }
 
-// if no PHP or HHVM is required anywhere, we need to add something
+// if no PHP is required anywhere, we need to add something
 if(!$have_runtime_req) {
 	if($have_dev_runtime_req) {
-		// there is no requirement for a PHP or HHVM version in "require", nor in any dependencies therein, but there is one in "require-dev"
-		// that's problematic, because requirements in there may effectively result in a rule like "7.0.*", but we'd next write "^5.5.17" into our "require" to have a sane default, and that'd blow up in CI where dev dependenies are installed
+		// there is no requirement for a PHP version in "require", nor in any dependencies therein, but there is one in "require-dev"
+		// that's problematic, because requirements in there may effectively result in a rule like "8.0.*", but we'd next write "^7.0.0" into our "require" to have a sane default for all stacks, and that'd blow up in CI where dev dependenies are installed
 		// we can't compute a resulting version rule (that's the whole point of the custom installer that uses Composer's solver), so throwing an error is the best thing we can do here
 		exit(3);
 	}
-	file_put_contents("php://stderr", "\033[1;33mNOTICE:\033[0m No runtime required in $COMPOSER_LOCK; using PHP ". ($require["heroku-sys/php"] = getenv("HEROKU_PHP_DEFAULT_RUNTIME_VERSION") ?? "^7.0.0") . "\n");
-} elseif(!isset($root["require"]["php"]) && !isset($root["require"]["hhvm"])) {
+	file_put_contents("php://stderr", "\033[1;33mNOTICE:\033[0m No runtime required in $COMPOSER_LOCK; using PHP ". ($require["heroku-sys/php"] = getenv("HEROKU_PHP_DEFAULT_RUNTIME_VERSION") ?: "^7.0.0") . "\n");
+} elseif(!isset($root["require"]["php"])) {
 	file_put_contents("php://stderr", "\033[1;33mNOTICE:\033[0m No runtime required in $COMPOSER; requirements\nfrom dependencies in $COMPOSER_LOCK will be used for selection\n");
 }
 
+$require["heroku-sys/composer"] = "*"; # we want the latest Composer...
+$require["heroku-sys/composer-plugin-api"] = isset($lock["plugin-api-version"]) ? "^{$lock['plugin-api-version']}" : "^1.0.0"; # ... that supports the plugin API version from the lock file
 $require["heroku-sys/apache"] = "^2.4.10";
 $require["heroku-sys/nginx"] = "^1.8.0";
 
 preg_match("#^([^-]+)(?:-([0-9]+))?\$#", $STACK, $stack);
-$provide = ["heroku-sys/".$stack[1] => (isset($stack[2])?$stack[2]:"1").gmdate(".Y.m.d")]; # cedar: 14.2016.02.16 etc
+$provide = ["heroku-sys/".$stack[1] => (isset($stack[2])?$stack[2]:"1").gmdate(".Y.m.d")]; # heroku: 20.2021.02.04 etc
+
+$replace = [];
+// check whether the blackfire CLI is already there (from their https://github.com/blackfireio/integration-heroku buildpack)
+exec("blackfire --no-ansi version 2>/dev/null", $blackfire_version, $have_blackfire);
+if($have_blackfire === 0 && preg_match("/^Blackfire version (\d+\.\d+\.\d+)/", $blackfire_version[0], $matches)) {
+	// and if so, "replace" it, so that we don't install our version - a "provide" would lead the solver to prefer a "real" package instead at least in Composer 1
+	$replace["heroku-sys/blackfire"] = $matches[1];
+	file_put_contents("php://stderr", "\033[1;33mNOTICE:\033[0m Blackfire CLI version $matches[1] detected.\n");
+} elseif($have_blackfire === 0) {
+	file_put_contents("php://stderr", "\033[1;33mWARNING:\033[0m Blackfire CLI detected, but could not determine version - falling back to bundled package!\n");
+}
+
 $json = [
 	"config" => ["cache-files-ttl" => 0, "discard-changes" => true],
 	"minimum-stability" => isset($lock["minimum-stability"]) ? $lock["minimum-stability"] : "stable",
 	"prefer-stable" => isset($lock["prefer-stable"]) ? $lock["prefer-stable"] : false,
 	"provide" => $provide,
+	"replace" => (object) $replace,
 	"require" => $require,
 	// only write out require-dev if we're installing in CI, as indicated by the HEROKU_PHP_INSTALL_DEV set (to an empty string)
 	"require-dev" => getenv("HEROKU_PHP_INSTALL_DEV") === false ? (object)[] : (object)$requireDev,
