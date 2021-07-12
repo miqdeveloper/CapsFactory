@@ -48,11 +48,11 @@ $('#form_register').ready(function(){
             data: data,
             error: function(state, data, arg){
                 alert('cadastrado. Redirecionando');
-                window.location.href = "http://capsystem.epizy.com/entrar.php";
+                window.location.href = "https://capsystem.epizy.com/entrar.php";
             },
             success: function(){
                 alert('cadastrado. Redirecionando');
-                window.location.href = "http://capsystem.epizy.com/entrar.php";
+                window.location.href = "https://capsystem.epizy.com/entrar.php";
             }
         });
     });
